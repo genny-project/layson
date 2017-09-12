@@ -1,13 +1,16 @@
 {
   "layout": {
     "grid": {
-      "cols": [6, 6],
       "rows": 1,
+      "cols": [6, 6],
       "children": [
         {
-          "image": {
-            "position": [1,0],
-            "src":"logo.png"
+          "button": {
+            "position": {
+              "sm": [1,0],
+              "xs": [0,0]
+            },
+            "src": "logo.png",
           }
         }
       ]
