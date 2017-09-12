@@ -12,7 +12,11 @@ class App extends Component {
             rows='2'
             cols='2'
             childrens={[
-                <Button />
+                <Button
+                    label="I am a button"
+                    position={[1,0]}
+                    
+                />
             ]}
         />
         <JSONLoaderTest />
