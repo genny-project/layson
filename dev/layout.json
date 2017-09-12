@@ -1,14 +1,16 @@
 {
-  "grid": {
-    "cols": [6, 6],
-    "rows": 1,
-    "children": [
-      {
-        "image": {
-          "position": [1,0],
-          "src":"logo.png"
+  "layout": {
+    "grid": {
+      "cols": [6, 6],
+      "rows": 1,
+      "children": [
+        {
+          "image": {
+            "position": [1,0],
+            "src":"logo.png"
+          }
         }
-      }
-    ]
+      ]
+    }
   }
 }
