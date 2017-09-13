@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
+import GridCol from './col';
+import GridRow from './row';
 
 class Grid extends Component {
 
-    layoutChildren() {
+    generateGrid(rows, cols) {
 
-        let children = this.props.children;
-        return children.length;
+        let layout = [];
+        for (let i = 0; i < rows; i++) {
+            layout.push(<GridRow
+                position={i}
+                cols={cols}
+            />);
+        }
+
+        console.log(this.props);
+
+
+        return layout;
     }
 
     render() {
+
         return (
-            <div>This grid contains {this.layoutChildren()} children</div>
+            <div>{this.generateGrid(this.props.rows, this.props.cols)}</div>
         );
     }
 }
