@@ -14,9 +14,6 @@ class Grid extends Component {
             />);
         }
 
-        console.log(this.props);
-
-
         return layout;
     }
 
