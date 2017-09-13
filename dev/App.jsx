@@ -9,15 +9,10 @@ class App extends Component {
     return (
       <div>
         <Grid
-            rows='2'
-            cols='2'
-            childrens={[
-                <Button
-                    label="I am a button"
-                    position={[1,0]}
-                    
-                />
-            ]}
+            <Button
+                label="I am a button"
+                position={[1,0]}
+            />
         />
         <JSONLoaderTest />
       </div>

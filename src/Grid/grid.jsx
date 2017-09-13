@@ -3,20 +3,16 @@ import React, { Component } from 'react';
 class Grid extends Component {
 
     layoutChildren() {
-        console.log("Rendering children");
+
+        let children = this.props.children;
+        return children.length;
     }
 
     render() {
         return (
-            <div>This grid contains {this.props.childrens.length} children</div>
+            <div>This grid contains {this.layoutChildren()} children</div>
         );
     }
-}
-
-Grid.defaultProps = {
-    rows: 1,
-    cols: 1,
-    childrens: []
 }
 
 export default Grid;
