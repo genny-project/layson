@@ -1,16 +1,38 @@
 {
-  "layout": {
-    "grid": {
-      "cols": [6, 6],
-      "rows": 1,
-      "children": [
-        {
-          "image": {
-            "position": [1,0],
-            "src":"logo.png"
+  "layout": [
+    {
+      "div": {
+        "cols": [6, 6],
+        "rows": 1,
+        "children": [
+          {
+            "div": {
+              "position": [1,0],
+              "text": "Hello World",
+              "children": [
+                {
+                  "Button": {
+                    "position": [1,1],
+                    "text": "Hello World"
+                  }
+                },
+                {
+                  "Button": {
+                    "position": [1,1],
+                    "text": "Hello World"
+                  }
+                },
+                {
+                  "Button": {
+                    "position": [1,1],
+                    "text": "Hello World"
+                  }
+                }
+              ]
+            }
           }
-        }
-      ]
+        ]
+      }
     }
-  }
+  ]
 }

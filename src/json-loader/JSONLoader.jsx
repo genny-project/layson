@@ -13,23 +13,55 @@ class JSONLoader extends Component {
     componentCollection: new ComponentCollection(),
   }
 
-  renderComponent( type, props ) {
+  renderChildren( data ) {
+    if ( !data ) {
+      return null;
+    }
+
+    const children = [];
+
+    data.forEach( d => {
+      children.push( this.renderComponent( Object.keys(d)[0], d[Object.keys(d)[0]]) );
+    });
+
+    if ( children.length === 0 ) {
+      return null;
+    }
+
+    if ( children.length === 1 ) {
+      return children[0];
+    }
+
+    return children;
+  }
+
+  renderComponent( type, data ) {
+    /* Get the data */
+    const props = data;
+    const children = data.children;
+
+    /* Get the component collection */
     const { componentCollection } = this.props;
+
     /* Get the component from the component collection */
     const component = componentCollection.get( type );
 
+    /* Show a warning if the component doesn't exist in the component collection */
     if ( !component ) {
       console.warn( `Could not find component with name ${type}` );
       return null;
     }
 
-    return React.createElement( component, props, props.children );
+    /* Create  the element */
+    return React.createElement( component, props, this.renderChildren( children ));
   }
 
   render() {
+    const { layout } = this.props;
+
     return (
       <div>
-        {this.renderComponent( 'Test', {})}
+        {this.renderChildren( layout.layout )}
       </div>
     );
   }

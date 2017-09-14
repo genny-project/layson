@@ -4,7 +4,7 @@ var Button = React.createClass({
 
   render: function () {
     return (
-      <button class="btn btn-default">Button</button>
+      <button className="btn btn-default">{this.props.text}</button>
     );
   }
 });
