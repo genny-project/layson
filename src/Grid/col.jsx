@@ -7,7 +7,7 @@ class GridCol extends Component {
         let children = this.props.children.length > 0 ? this.props.children : "Column #" + this.props.position;
         const colSize = this.props.ratio;
         const colStyle = {
-            "flex-grow": 1
+            "flexGrow": 1
         };
 
         return (
