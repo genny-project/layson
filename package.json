@@ -13,6 +13,7 @@
   "author": "GADA Technology",
   "license": "Apache2.0",
   "dependencies": {
+    "hash-sum": "^1.0.2",
     "prop-types": "^15.5.10"
   },
   "devDependencies": {

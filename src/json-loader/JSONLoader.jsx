@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
 import { ComponentCollection } from '../component-collection';
+import hash from 'hash-sum';
+
+/* Define all the built in html tags */
 const htmlTags = [ 'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button', 'canvas',
 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del',
@@ -31,13 +34,11 @@ class JSONLoader extends Component {
       return null;
     }
 
-    console.log( typeof data );
-
     if ( typeof data == 'object' ) {
       const children = [];
 
-      data.forEach( d => {
-        children.push( this.renderComponent( Object.keys(d)[0], d[Object.keys(d)[0]]) );
+      data.forEach(( d, i ) => {
+        children.push( this.renderComponent( Object.keys(d)[0], d[Object.keys(d)[0]], i ) );
       });
 
       if ( children.length === 0 ) {
@@ -56,9 +57,13 @@ class JSONLoader extends Component {
     }
   }
 
-  renderComponent( type, data ) {
+  renderComponent( type, data, index = 0 ) {
     /* Get the data */
-    const props = data;
+    const props = {
+      key: hash({ type, data, index }),
+      ...data
+    };
+
     const children = data.children;
 
     /* Get the component collection */
@@ -73,7 +78,7 @@ class JSONLoader extends Component {
       return null;
     }
 
-    /* Create  the element */
+    /* Create the element */
     return React.createElement( component, props, this.renderChildren( children ));
   }
 
