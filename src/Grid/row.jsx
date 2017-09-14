@@ -1,6 +1,6 @@
+import './grid.scss';
 import React, { Component } from 'react';
 import GridCol from './col';
-import GridStyle from './grid.scss';
 
 class GridRow extends Component {
 
@@ -17,7 +17,6 @@ class GridRow extends Component {
             layout.push(
                 <GridCol
                     position={[this.props.position, i]}
-                    ratio={100/cols}
                 >
                     {colChildren}
 
@@ -32,7 +31,7 @@ class GridRow extends Component {
 
         return (
             <div
-                className={GridStyle.row}
+                className="row"
                 >
                 {this.layoutCols(this.props.cols)}
             </div>
