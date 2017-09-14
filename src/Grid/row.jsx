@@ -30,9 +30,9 @@ class GridRow extends Component {
     render() {
 
         const style = {
-            "flex-wrap": "wrap",
+            "flexWrap": "wrap",
             "display": "flex",
-            "justify-content": "space-evenly"
+            "justifyContent": "space-evenly"
         };
 
         return (
