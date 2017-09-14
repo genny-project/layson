@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
 import { ComponentCollection } from '../component-collection';
+const htmlTags = [ 'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
+'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button', 'canvas',
+'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del',
+'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset',
+'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+'head', 'header', 'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins',
+'kbd', 'keygen', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'math',
+'menu', 'menuitem', 'meta', 'meter', 'nav', 'noscript', 'object', 'ol',
+'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 'q',
+'rb', 'rp', 'rt', 'rtc', 'ruby', 's', 'samp', 'script', 'section', 'select',
+'slot', 'small', 'source', 'span', 'strong', 'style', 'sub', 'summary', 'sup',
+'svg', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead',
+'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr' ];
 
 class JSONLoader extends Component {
   static propTypes = {
@@ -18,21 +31,29 @@ class JSONLoader extends Component {
       return null;
     }
 
-    const children = [];
+    console.log( typeof data );
 
-    data.forEach( d => {
-      children.push( this.renderComponent( Object.keys(d)[0], d[Object.keys(d)[0]]) );
-    });
+    if ( typeof data == 'object' ) {
+      const children = [];
 
-    if ( children.length === 0 ) {
-      return null;
+      data.forEach( d => {
+        children.push( this.renderComponent( Object.keys(d)[0], d[Object.keys(d)[0]]) );
+      });
+
+      if ( children.length === 0 ) {
+        return null;
+      }
+
+      if ( children.length === 1 ) {
+        return children[0];
+      }
+
+      return children;
     }
 
-    if ( children.length === 1 ) {
-      return children[0];
+    if ( typeof data != object ) {
+      return data;
     }
-
-    return children;
   }
 
   renderComponent( type, data ) {
@@ -44,7 +65,7 @@ class JSONLoader extends Component {
     const { componentCollection } = this.props;
 
     /* Get the component from the component collection */
-    const component = componentCollection.get( type );
+    const component = htmlTags.indexOf( type ) > -1 ? type : componentCollection.get( type );
 
     /* Show a warning if the component doesn't exist in the component collection */
     if ( !component ) {
