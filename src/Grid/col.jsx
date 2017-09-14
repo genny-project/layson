@@ -4,12 +4,18 @@ class GridCol extends Component {
 
     render() {
 
-        const colSize = 12 / this.props.number_of_cols_in_row;
-        const colName = "col-xs-" + colSize;
+        let children = this.props.children.length > 0 ? this.props.children : "Column #" + this.props.position;
+        const colSize = this.props.ratio;
+        const colStyle = {
+            "flex-grow": 1
+        };
 
         return (
-            <div className={colName}>
-                Col: {this.props.position}
+            <div
+                className="col"
+                style={colStyle}
+                >
+                {children}
             </div>
         );
     }

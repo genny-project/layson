@@ -8,10 +8,20 @@ class Grid extends Component {
 
         let layout = [];
         for (let i = 0; i < rows; i++) {
-            layout.push(<GridRow
-                position={i}
-                cols={cols}
-            />);
+
+            let childs = React.Children.toArray(this.props.children);
+            const rowChildren = childs.filter(child => {
+                return child.props.position != undefined && child.props.position[0] == i;
+            });
+
+            layout.push(
+                <GridRow
+                    position={i}
+                    cols={cols}
+                >
+                    {rowChildren}
+                </GridRow>
+            );
         }
 
         return layout;

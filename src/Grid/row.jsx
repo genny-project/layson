@@ -7,11 +7,20 @@ class GridRow extends Component {
 
         let layout = [];
         for (var i = 0; i < cols; i++) {
+
+            let childs = React.Children.toArray(this.props.children);
+            const colChildren = childs.filter(child => {
+                return child.props.position != undefined && child.props.position[0] == i;
+            });
+
             layout.push(
                 <GridCol
                     position={[this.props.position, i]}
-                    number_of_cols_in_row={cols}
-                />
+                    ratio={100/cols}
+                >
+                    {colChildren}
+
+                </GridCol>
             );
         }
 
@@ -20,8 +29,17 @@ class GridRow extends Component {
 
     render() {
 
+        const style = {
+            "flex-wrap": "wrap",
+            "display": "flex",
+            "justify-content": "space-evenly"
+        };
+
         return (
-            <div className="row">
+            <div
+                className="row"
+                style={style}
+                >
                 {this.layoutCols(this.props.cols)}
             </div>
         );

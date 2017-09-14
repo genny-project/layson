@@ -9,12 +9,12 @@ class App extends Component {
     return (
       <div>
         <Grid
-            cols="2"
+            cols="3"
             rows="2"
             >
             <Button
                 label="I am a button"
-                position={[1,0]}
+                position={[0,0]}
             />
         </Grid>
       </div>
