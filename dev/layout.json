@@ -1,19 +1,24 @@
 {
-  "layout": {
-    "grid": {
-      "rows": 1,
-      "cols": [6, 6],
-      "children": [
-        {
-          "button": {
-            "position": {
-              "sm": [1,0],
-              "xs": [0,0]
-            },
-            "src": "logo.png",
+  "layout": [
+    {
+      "Grid": {
+        "rows": 2,
+        "cols": 2,
+        "children": [
+          {
+            "Button": {
+              "text": "Hello World",
+              "position": [0,0]
+            }
+          },
+          {
+            "Button": {
+              "text": "Hello from the other side",
+              "position": [1,1]
+            }
           }
-        }
-      ]
+        ]
+      }
     }
-  }
+  ]
 }

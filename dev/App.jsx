@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Grid from '../src/Grid/grid';
-import JSONLoaderTest from './JSONLoaderTest';
+import { JSONLoader } from '../src/json-loader';
+import { ComponentCollection } from '../src/component-collection';
 import Button from './ButtonComponent';
+import layout from './layout.json';
 
 class App extends Component {
   render() {
-    return (
-      <div>
-        <Grid
-            cols="3"
-            rows="2"
-            >
-            <Button
-                label="I am a button"
-                position={[0,0]}
-            />
-        </Grid>
-      </div>
-    );
+    const collection = new ComponentCollection({
+      Grid,
+      Button,
+    });
+
+    return <JSONLoader componentCollection={collection} layout={layout} />;
   }
 }
 
