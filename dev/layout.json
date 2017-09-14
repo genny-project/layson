@@ -1,34 +1,20 @@
 {
   "layout": [
     {
-      "div": {
-        "cols": [6, 6],
-        "rows": 1,
+      "Grid": {
+        "rows": 2,
+        "cols": 2,
         "children": [
           {
-            "div": {
-              "position": [1,0],
+            "Button": {
               "text": "Hello World",
-              "children": [
-                {
-                  "Button": {
-                    "position": [1,1],
-                    "text": "Hello World"
-                  }
-                },
-                {
-                  "Button": {
-                    "position": [1,1],
-                    "text": "Hello World"
-                  }
-                },
-                {
-                  "Button": {
-                    "position": [1,1],
-                    "text": "Hello World"
-                  }
-                }
-              ]
+              "position": [0,0]
+            }
+          },
+          {
+            "Button": {
+              "text": "Hello from the other side",
+              "position": [1,1]
             }
           }
         ]
