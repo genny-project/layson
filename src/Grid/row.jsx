@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GridCol from './col';
+import GridStyle from './grid.scss';
 
 class GridRow extends Component {
 
@@ -10,7 +11,7 @@ class GridRow extends Component {
 
             let childs = React.Children.toArray(this.props.children);
             const colChildren = childs.filter(child => {
-                return child.props.position != undefined && child.props.position[0] == i;
+                return child.props.position != undefined && child.props.position[1] == i;
             });
 
             layout.push(
@@ -29,16 +30,9 @@ class GridRow extends Component {
 
     render() {
 
-        const style = {
-            "flexWrap": "wrap",
-            "display": "flex",
-            "justifyContent": "space-evenly"
-        };
-
         return (
             <div
-                className="row"
-                style={style}
+                className={GridStyle.row}
                 >
                 {this.layoutCols(this.props.cols)}
             </div>

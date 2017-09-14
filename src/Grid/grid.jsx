@@ -18,6 +18,7 @@ class Grid extends Component {
                 <GridRow
                     position={i}
                     cols={cols}
+                    key={i}
                 >
                     {rowChildren}
                 </GridRow>

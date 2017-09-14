@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GridStyle from './grid.scss';
 
 class GridCol extends Component {
 
@@ -6,14 +7,11 @@ class GridCol extends Component {
 
         let children = this.props.children.length > 0 ? this.props.children : "Column #" + this.props.position;
         const colSize = this.props.ratio;
-        const colStyle = {
-            "flexGrow": 1
-        };
 
         return (
             <div
-                className="col"
-                style={colStyle}
+                className={GridStyle.col}
+                key={this.props.position}
                 >
                 {children}
             </div>
