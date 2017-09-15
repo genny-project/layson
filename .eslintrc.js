@@ -26,5 +26,6 @@ module.exports = {
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "react/jsx-uses-vars": 1,
+    "indent": ["error", 2]
   },
 };

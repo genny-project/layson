@@ -1,12 +1,17 @@
+import React, { Component } from 'react';
+import { string } from 'prop-types';
 
-import React from 'react';
+class Button extends Component {
+  static propTypes = {
+    text: string
+  };
 
-var Button = React.createClass({
-  render: function () {
+  render() {
+    const { text } = this.props;
     return (
-      <button className="btn btn-default">{this.props.text}</button>
+      <button className="btn btn-default">{text}</button>
     );
   }
-});
+}
 
-module.exports = Button;
+export default Button;

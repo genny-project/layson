@@ -1,20 +1,22 @@
 import './grid.scss';
 import React, { Component } from 'react';
+import { array, any } from 'prop-types';
 
 class GridCol extends Component {
 
-    render() {
+  static propTypes = {
+    position: array,
+    children: any,
+  }
 
-        return (
-            <div
-                className="col"
-                key={this.props.position}
-                >
-                {this.props.children}
-            </div>
-        );
-    }
-
+  render() {
+    const { position, children } = this.props;
+    return (
+      <div className="col" key={position}>
+        {children}
+      </div>
+    );
+  }
 }
 
 export default GridCol;
