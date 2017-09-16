@@ -6,11 +6,13 @@ class Grid extends Component {
   static propTypes = {
     children: any,
     rows: number,
-    cols: number
+    cols: any
   }
 
   generateGrid(rows, cols) {
+
     const { children } = this.props;
+
     const layout = [];
     for (let i = 0; i < rows; i++) {
       let childs = React.Children.toArray(children);

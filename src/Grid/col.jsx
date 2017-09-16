@@ -1,18 +1,27 @@
 import './grid.scss';
 import React, { Component } from 'react';
-import { array, any } from 'prop-types';
+import { array, number, any } from 'prop-types';
 
 class GridCol extends Component {
 
   static propTypes = {
     position: array,
     children: any,
+    ratio: number
   }
 
   render() {
-    const { position, children } = this.props;
+      
+    var { position, children, ratio } = this.props;
+
+    const style = {
+        "flexGrow": ratio
+    };
+
     return (
-      <div className="col" key={position}>
+      <div className="col"
+          key={position}
+          style={style}>
         {children}
       </div>
     );

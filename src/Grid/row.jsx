@@ -7,22 +7,31 @@ class GridRow extends Component {
   static propTypes = {
     children: any,
     position: number,
-    cols: number,
+    cols: any,
   };
 
   layoutCols(cols) {
+
     const { children, position } = this.props;
+
     const layout = [];
-    for (let i = 0; i < cols; i++) {
+    const limit = typeof cols == "object" ? cols.length : cols;
+    for (let i = 0; i < limit; i++) {
 
       let childs = React.Children.toArray(children);
       const colChildren = childs.filter(child => {
         return child.props.position != undefined && child.props.position[1] == i;
       });
 
+      const ratio = typeof cols == "object" ? cols[i] : 1;
+
       layout.push(
-        <GridCol key={`${position}${i}`} position={[position, i]}>
+        <GridCol
+            key={`${position}${i}`}
+            position={[position, i]}
+            ratio={ratio}>
             {colChildren}
+
         </GridCol>
         );
     }
