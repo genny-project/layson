@@ -80,6 +80,8 @@ class JSONLoader extends Component {
       return null;
     }
 
+    props.screenSize = this.props.screenSize;
+
     /* Create the element */
     return React.createElement( component, props, this.renderChildren( children ));
   }
