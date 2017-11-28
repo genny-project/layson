@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { any, number } from 'prop-types';
+import { any, number, string } from 'prop-types';
 import GridRow from './row';
 
 class Grid extends Component {
   static propTypes = {
     children: any,
     rows: number,
-    cols: any
+    cols: any,
+    className: string,
   }
 
   generateGrid(rows, cols) {
@@ -30,9 +31,9 @@ class Grid extends Component {
   }
 
   render() {
-    const { rows, cols } = this.props;
+    const { rows, cols, className } = this.props;
     return (
-      <div>{this.generateGrid(rows, cols)}</div>
+      <div className={`grid ${className}`}>{this.generateGrid(rows, cols)}</div>
     );
   }
 }
