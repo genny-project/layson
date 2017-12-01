@@ -34,7 +34,6 @@ class GridCol extends Component {
       <div className="col"
           key={position}
           style={style}>
-        <span>{position}</span>
         {children}
       </div>
     );
