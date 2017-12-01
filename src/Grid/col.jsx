@@ -7,21 +7,34 @@ class GridCol extends Component {
   static propTypes = {
     position: array,
     children: any,
-    ratio: number
+    ratio: any,
   }
 
   render() {
       
-    var { position, children, ratio } = this.props;
+    const { position, children, ratio, overflow } = this.props;
 
-    const style = {
-        "flexGrow": ratio
-    };
+    let style = {};
+
+    if (Number.isInteger(ratio)) {
+      style = {
+        "flexGrow": ratio,
+        "overflow": overflow,
+      };
+    } else {
+      style = {
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "flexBasis": ratio,
+        "overflow": overflow,
+      };
+    }
 
     return (
       <div className="col"
           key={position}
           style={style}>
+        <span>{position}</span>
         {children}
       </div>
     );
