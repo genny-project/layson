@@ -25,17 +25,17 @@ class GridRow extends Component {
 
       const ratio = Array.isArray(cols) ? cols[i] : 1;
 
-      const overflow = Number.isInteger(size) ? 'hidden' : size == 'auto' ? 'scroll' : 'hidden';
+      const overflow = Number.isInteger(size) ? 'visible' : size == 'auto' ? 'scroll' : 'visible';
 
       layout.push(
         <GridCol
-            key={`${position}${i}`}
-            position={[position, i]}
-            ratio={ratio}
-            overflow={overflow}>
+          key={`${position}${i}`}
+          position={[position, i]}
+          ratio={ratio}
+          overflow={overflow}>
           {colChildren}
         </GridCol>
-        );
+      );
     }
     
     return layout;
@@ -49,28 +49,28 @@ class GridRow extends Component {
 
     if (Number.isInteger(size)) {
       style = {
-        "flexGrow": size,
+        'flexGrow': size,
       };
     } else {
       if ( size == 'auto') {
         style = {
-          "flexGrow": 1,
-          "flexShrink": 1,
-          "flexBasis": 'auto',
+          'flexGrow': 1,
+          'flexShrink': 1,
+          'flexBasis': 'auto',
         };
       } else {
         style = {
-          "flexGrow": 0,
-          "flexShrink": 0,
-          "flexBasis": size,
+          'flexGrow': 0,
+          'flexShrink': 0,
+          'flexBasis': size,
         };
       }
     }
 
     return (
-        <div className="row" style={style}>
-          {this.layoutCols(cols)}
-        </div>
+      <div className="row" style={style}>
+        {this.layoutCols(cols)}
+      </div>
     );
   }
 }
