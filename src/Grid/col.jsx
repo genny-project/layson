@@ -15,7 +15,6 @@ class GridCol extends Component {
     const { position, children, ratio, ...rest } = this.props;
 
     let style = {};
-    ratio
 
     if(ratio){
       switch(ratio.constructor) {
