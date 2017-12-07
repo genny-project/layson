@@ -21,7 +21,6 @@ class Grid extends Component {
     const { children } = this.props;
 
     const layout = [];
-
     const limit = Array.isArray(rows) ? rows.length : rows;
 
     for (let i = 0; i < limit; i++) {
@@ -29,16 +28,41 @@ class Grid extends Component {
       const rowChildren = childs.filter(child => {
         return child.props.position != undefined && child.props.position[0] == i;
       });
-      
-      const size = Array.isArray(rows) ? rows[i] : 1;
+
+      let size = null;
+      let otherProps = {};
+
+      switch(rows[i].constructor) {
+     
+        case Number: {
+          size = 1;
+          break;
+        }
+
+        case String: {
+          size = rows[i];
+          break;
+        }
+
+        case Object: {
+          otherProps = rows[i];
+          size = 1;
+          break;        
+        }
+
+        default: {
+          console.error("Unknown value supplied for: 'Rows'.", "Value must be Number, String, or Object.");
+          break;
+        }
+      }
       
       layout.push(
-         <GridRow position={i} cols={cols} key={i} size={size}> 
+        <GridRow position={i} cols={cols} key={i} size={size} {...otherProps}> 
           {rowChildren}
         </GridRow>
       );
+
     }
-    
     return layout;
   }
   

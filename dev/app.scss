@@ -6,65 +6,6 @@ html, body {
   height: 100vh;
 }
 
-.grid {
-  .row {
-    &:nth-child(1) {
-      .col {
-        &:nth-child(2) {
-          background-color: rgba(255, 0, 0, 0.5);
-        }
-        &:nth-child(3) {
-          background-color: rgba(0, 255, 0, 0.5);
-        }
-        &:nth-child(4) {
-          background-color: rgba(0, 0, 255, 0.5);
-        }
-      }
-    }
-    
-    &:nth-child(2) {
-      background-color: rgba(255, 0, 0, 0.5);
-      .col {
-        &:nth-child(2) {
-          background-color: rgba(255, 0, 0, 0.5);
-        }
-        &:nth-child(3) {
-          background-color: rgba(0, 255, 0, 0.5);
-        }
-        &:nth-child(4) {
-          background-color: rgba(0, 0, 255, 0.5);
-        }
-      }
-    }
-
-    &:nth-child(3) {
-      background-color: rgba(0, 255, 0, 0.5);
-      .col {
-        &:nth-child(2) {
-          background-color: rgba(255, 0, 0, 0.5);
-        }
-        &:nth-child(3) {
-          background-color: rgba(0, 255, 0, 0.5);
-        }
-        &:nth-child(4) {
-          background-color: rgba(0, 0, 255, 0.5);
-        }
-      }
-    }
-    
-    &:nth-child(4) {
-      background-color: rgba(0, 0, 255, 0.5);
-      .col {
-        &:nth-child(2) {
-          background-color: rgba(255, 0, 0, 0.5);
-        }
-        &:nth-child(3) {
-          background-color: rgba(0, 255, 0, 0.5);
-        }
-        &:nth-child(4) {
-          background-color: rgba(0, 0, 255, 0.5);
-        }
-      }
-    }
-  }
+.clickable {
+  cursor: pointer;
 }
