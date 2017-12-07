@@ -12,28 +12,38 @@ class GridCol extends Component {
 
   render() {
       
-    const { position, children, ratio, overflow } = this.props;
+    const { position, children, ratio, ...rest } = this.props;
 
     let style = {};
 
-    if (Number.isInteger(ratio)) {
-      style = {
-        "flexGrow": ratio,
-        "overflow": overflow,
-      };
-    } else {
-      style = {
-        "flexGrow": 0,
-        "flexShrink": 0,
-        "flexBasis": ratio,
-        "overflow": overflow,
-      };
+    if(ratio){
+      switch(ratio.constructor) {
+        case Number: {
+          style = {
+            "flexGrow": ratio,
+          };break;
+        }
+
+        case String: {
+          style = {
+            "flexGrow": 0,
+            "flexShrink": 0,
+            "flexBasis": ratio
+          };
+          break;
+        }
+
+        default: {
+          null;
+        }
+      }
     }
 
     return (
       <div className="col"
           key={position}
-          style={style}>
+          style={style}
+          {...rest}>
         {children}
       </div>
     );

@@ -24,6 +24,7 @@ class JSONLoader extends Component {
     layout: object,
     componentCollection: object,
     context: object,
+    
   }
 
   static defaultProps = {
@@ -53,10 +54,11 @@ class JSONLoader extends Component {
 
       return children;
     }
-
+    
     if ( typeof data != object ) {
       return data;
     }
+    
   }
 
   renderComponent( type, data, index = 0 ) {
@@ -79,8 +81,6 @@ class JSONLoader extends Component {
       console.warn( `Could not find component with name ${type}` );
       return null;
     }
-
-    props.screenSize = this.props.screenSize;
 
     /* Create the element */
     return React.createElement( component, props, this.renderChildren( children ));
