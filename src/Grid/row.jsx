@@ -103,7 +103,7 @@ class GridRow extends Component {
     }
 
     return (
-      <div {...rest} style={{...style, ...rest.style}} className={`row ${rest.className ? rest.className : ''}`} >
+      <div {...rest} style={{...style, ...rest.style}} className={`row ${rest.className || ''}`} >
         {this.layoutCols(cols)}
       </div>
     );
