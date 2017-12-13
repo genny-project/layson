@@ -32,27 +32,29 @@ class Grid extends Component {
       let size = null;
       let otherProps = {};
 
-      switch(rows[i].constructor) {
+      if (Array.isArray(rows)) {
+        switch(rows[i].constructor) {
 
-        case Number: {
-          size = 1;
-          break;
-        }
+          case Number: {
+            size = 1;
+            break;
+          }
 
-        case String: {
-          size = rows[i];
-          break;
-        }
+          case String: {
+            size = rows[i];
+            break;
+          }
 
-        case Object: {
-          otherProps = rows[i];
-          size = 1;
-          break;
-        }
+          case Object: {
+            otherProps = rows[i];
+            size = 1;
+            break;
+          }
 
-        default: {
-          console.error("Unknown value supplied for: 'Rows'.", "Value must be Number, String, or Object.");
-          break;
+          default: {
+            console.error("Unknown value supplied for: 'Rows'.", "Value must be Number, String, or Object.");
+            break;
+          }
         }
       } else {
         size = 1;
