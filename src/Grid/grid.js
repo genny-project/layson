@@ -54,6 +54,8 @@ class Grid extends Component {
           console.error("Unknown value supplied for: 'Rows'.", "Value must be Number, String, or Object.");
           break;
         }
+      } else {
+        size = 1;
       }
 
       layout.push(

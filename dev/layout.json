@@ -2,8 +2,8 @@
   "layout": [
     {
       "Grid": {
-        "cols": ["100px", 1],
-        "rows": ["50px", 1,"auto", {"style":{"background": "red", "flexGrow":"0", "flexBasis": "30px"}, "className":"clickable"}],
+        "cols": 2,
+        "rows": 2,
         "children": [{
           "div": {
             "position": [0,1],
