@@ -29,27 +29,34 @@ class GridRow extends Component {
       let objectType = typeof cols[i];
       let otherProps = {};
 
-      switch(cols[i].constructor) {
-        case Number: {
-          size = 1;
-          break;
+    
+      if (Array.isArray(cols)) {
+        switch(cols[i].constructor) {
+          case Number: {
+            size = 1;
+            break;
+          }
+  
+          case String: {
+            size = cols[i];
+            break;
+          }
+  
+          case Object: {
+            otherProps = cols[i];
+            size = 1;
+            break;        
+          }
+  
+          default: {
+            console.error("Unknown value supplied for: 'Cols'.", "Value must be Number, String, or Object.");
+          }
         }
-
-        case String: {
-          size = cols[i];
-          break;
-        }
-
-        case Object: {
-          otherProps = cols[i];
-          size = 1;
-          break;        
-        }
-
-        default: {
-          console.error("Unknown value supplied for: 'Cols'.", "Value must be Number, String, or Object.");
-        }
+      } else {
+        size = 1;
       }
+       
+      
 
       layout.push(
         <GridCol
