@@ -33,7 +33,7 @@ class Grid extends Component {
       let otherProps = {};
 
       switch(rows[i].constructor) {
-     
+
         case Number: {
           size = 1;
           break;
@@ -47,7 +47,7 @@ class Grid extends Component {
         case Object: {
           otherProps = rows[i];
           size = 1;
-          break;        
+          break;
         }
 
         default: {
@@ -55,9 +55,9 @@ class Grid extends Component {
           break;
         }
       }
-      
+
       layout.push(
-        <GridRow position={i} cols={cols} key={i} size={size} {...otherProps}> 
+        <GridRow position={i} cols={cols} key={i} size={size} {...otherProps}>
           {rowChildren}
         </GridRow>
       );
@@ -65,10 +65,10 @@ class Grid extends Component {
     }
     return layout;
   }
-  
+
   render() {
     const { rows, cols, className, style } = this.props;
-    
+
     const gridStyle = {
       ...style,
       'display': 'flex',
