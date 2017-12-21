@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
 import { ComponentCollection } from '../component-collection';
-import mustache from 'mustache';
 import hash from 'hash-sum';
 
 /* Define all the built in html tags */
@@ -23,8 +22,6 @@ class JSONLoader extends Component {
   static propTypes = {
     layout: object,
     componentCollection: object,
-    context: object,
-    
   }
 
   static defaultProps = {
@@ -87,11 +84,11 @@ class JSONLoader extends Component {
   }
 
   render() {
-    const { layout, context } = this.props;
+    const { layout } = this.props;
 
     return (
       <div>
-        {this.renderChildren( JSON.parse(mustache.render(JSON.stringify(layout.layout), context))) }
+        {this.renderChildren( layout.layout ) }
       </div>
     );
   }
