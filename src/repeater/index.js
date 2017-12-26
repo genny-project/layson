@@ -1,1 +1,1 @@
-export { default as Repeater } from './Repeater.jsx';
+export { default as Repeater } from './Repeater';

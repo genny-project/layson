@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { number, any } from 'prop-types';
+import { View } from 'react-native';
 
 class Repeater extends Component {
+
   static propTypes = {
     count: number,
     children: any
@@ -12,13 +14,13 @@ class Repeater extends Component {
     const list = [];
 
     for( let i = 0; i < count; i++ ) {
-      list.push(<div key={`${children.key}-${i}`}>{children}</div>);
+      list.push(<View key={`${children.key}-${i}`}>{children}</View>);
     }
 
     return (
-      <div>
+      <View>
         {list}
-      </div>
+      </View>
     );
   }
 }

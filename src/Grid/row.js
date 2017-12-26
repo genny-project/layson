@@ -1,14 +1,10 @@
-import './grid.scss';
+// import './grid.scss';
 import React, { Component } from 'react';
 import { any, number } from 'prop-types';
 import GridCol from './col';
+import { View } from 'react-native';
 
 class GridRow extends Component {
-  static propTypes = {
-    children: any,
-    position: number,
-    cols: any,
-  };
 
   layoutCols(cols) {
 
@@ -22,41 +18,37 @@ class GridRow extends Component {
       const colChildren = childs.filter(child => {
         return child.props.position != undefined && child.props.position[1] == i;
       });
-      
+
       const ratio = Array.isArray(cols) ? cols[i] : 1;
 
-      let size = null;
+      let size = 1;
       let objectType = typeof cols[i];
       let otherProps = {};
 
-    
+
       if (Array.isArray(cols)) {
         switch(cols[i].constructor) {
           case Number: {
             size = 1;
             break;
           }
-  
+
           case String: {
             size = cols[i];
             break;
           }
-  
+
           case Object: {
             otherProps = cols[i];
             size = 1;
-            break;        
+            break;
           }
-  
+
           default: {
             console.error("Unknown value supplied for: 'Cols'.", "Value must be Number, String, or Object.");
           }
         }
-      } else {
-        size = 1;
       }
-       
-      
 
       layout.push(
         <GridCol
@@ -68,15 +60,15 @@ class GridRow extends Component {
         </GridCol>
       );
     }
-    
+
     return layout;
   }
   render() {
-    
+
     const { cols, size, position, children, ...rest} = this.props;
 
     let style = {};
-    
+
     if (size){
       switch(size.constructor) {
         case Number: {
@@ -102,7 +94,7 @@ class GridRow extends Component {
           }
           break;
         }
-        
+
         default: {
           null
         }
@@ -110,9 +102,9 @@ class GridRow extends Component {
     }
 
     return (
-      <div {...rest} style={{...style, ...rest.style}} className={`row ${rest.className || ''}`} >
+      <View {...rest} style={{...style, ...rest.style}} className={`row ${rest.className || ''}`} >
         {this.layoutCols(cols)}
-      </div>
+      </View>
     );
   }
 }

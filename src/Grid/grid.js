@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 import { any, number, string, object } from 'prop-types';
 import GridRow from './row';
+import { View } from 'react-native';
 
 class Grid extends Component {
-
-  static defaultProps = {
-    className: ''
-  }
-
-  static propTypes = {
-    children: any,
-    rows: any,
-    cols: any,
-    className: string,
-    style: object
-  }
 
   generateGrid(rows, cols) {
 
@@ -24,12 +13,13 @@ class Grid extends Component {
     const limit = Array.isArray(rows) ? rows.length : rows;
 
     for (let i = 0; i < limit; i++) {
+
       let childs = React.Children.toArray(children);
       const rowChildren = childs.filter(child => {
         return child.props.position != undefined && child.props.position[0] == i;
       });
 
-      let size = null;
+      let size = 1;
       let otherProps = {};
 
       switch(rows[i].constructor) {
@@ -54,8 +44,7 @@ class Grid extends Component {
           console.error("Unknown value supplied for: 'Rows'.", "Value must be Number, String, or Object.");
           break;
         }
-      } else {
-        size = 1;
+
       }
 
       layout.push(
@@ -69,6 +58,7 @@ class Grid extends Component {
   }
 
   render() {
+
     const { rows, cols, className, style } = this.props;
 
     const gridStyle = {
@@ -80,7 +70,7 @@ class Grid extends Component {
     };
 
     return (
-      <div className={`grid ${className}`} style={gridStyle} >{this.generateGrid(rows, cols)}</div>
+      <View className={`grid ${className}`} style={gridStyle} >{this.generateGrid(rows, cols)}</View>
     );
   }
 }
