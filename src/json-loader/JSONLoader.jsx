@@ -85,12 +85,7 @@ class JSONLoader extends Component {
 
   render() {
     const { layout } = this.props;
-
-    return (
-      <div>
-        {this.renderChildren( layout.layout ) }
-      </div>
-    );
+    return this.renderChildren( layout.layout );
   }
 }
 
