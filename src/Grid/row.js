@@ -81,7 +81,7 @@ class GridRow extends Component {
       switch(size.constructor) {
         case Number: {
           style = {
-            'flexGrow': size,
+            flexGrow: size,
           };
           break;
         }
@@ -89,15 +89,15 @@ class GridRow extends Component {
         case String: {
           if ( size == 'auto') {
             style = {
-              'flexGrow': 1,
-              'flexShrink': 1,
-              'flexBasis': 'auto',
+              flexGrow: 1,
+              flexShrink: 1,
+              flexBasis: 'auto',
             };
           } else {
             style = {
-              'flexGrow': 0,
-              'flexShrink': 0,
-              'flexBasis': size,
+              flexGrow: 0,
+              flexShrink: 0,
+              flexBasis: size,
             };
           }
           break;

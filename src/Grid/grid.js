@@ -75,10 +75,10 @@ class Grid extends Component {
 
     const gridStyle = {
       ...style,
-      'display': 'flex',
-      'flexDirection': 'column',
-      'flexWrap': 'nowrap',
-      'height': '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      flexWrap: 'nowrap',
+      height: '100%',
     };
 
     return (

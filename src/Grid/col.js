@@ -20,15 +20,15 @@ class GridCol extends Component {
       switch(ratio.constructor) {
         case Number: {
           style = {
-            "flexGrow": ratio,
+            flexGrow: ratio,
           };break;
         }
 
         case String: {
           style = {
-            "flexGrow": 0,
-            "flexShrink": 0,
-            "flexBasis": ratio
+            flexGrow: 0,
+            flexShrink: 0,
+            flexBasis: ratio
           };
           break;
         }
