@@ -74,11 +74,11 @@ class Grid extends Component {
     const { rows, cols, className, style } = this.props;
 
     const gridStyle = {
-      ...style,
       display: 'flex',
       flexDirection: 'column',
       flexWrap: 'nowrap',
       height: '100%',
+      ...style,
     };
 
     return (
