@@ -35,11 +35,7 @@ class Grid extends Component {
       if (Array.isArray(rows)) {
         switch(rows[i].constructor) {
 
-          case Number: {
-            size = 1;
-            break;
-          }
-
+          case Number:
           case String: {
             size = rows[i];
             break;
