@@ -13,10 +13,12 @@ class GridCol extends Component {
 
     if(ratio){
       switch(ratio.constructor) {
+
         case Number: {
           style = {
             "flexGrow": ratio,
-          };break;
+          };
+          break;
         }
 
         case String: {
